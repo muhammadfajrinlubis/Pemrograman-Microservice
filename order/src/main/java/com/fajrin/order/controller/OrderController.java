@@ -6,6 +6,7 @@ package com.fajrin.order.controller;
  */
 import com.fajrin.order.entity.Order;
 import com.fajrin.order.service.OrderService;
+import com.fajrin.order.vo.ResponseTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -23,6 +24,26 @@ public class OrderController {
     @GetMapping
     public List<Order> getAll(){
         return orderService.getAll();
+    }
+    
+    @GetMapping(path = "{id}")
+    public Order getOrderById(@PathVariable("id")Long id){
+        return orderService.getOderById(id);
+    }
+    
+    @GetMapping(path = "/produk/{id}")
+    public List<ResponseTemplate>getOrderwithProdukById(@PathVariable("id")Long id){
+       return orderService.getOrderWithProdukById(id);
+    }
+    
+    @PutMapping(path = "{id}")
+    public void updateOrder(@PathVariable ("id") Long id,
+            @RequestParam(required = false) int jumlah,
+            @RequestParam(required = false) String tangggal,
+            @RequestParam(required = false) String status
+            
+    ){
+        orderService.update(id, jumlah, tangggal, status,0);
     }
             
 }

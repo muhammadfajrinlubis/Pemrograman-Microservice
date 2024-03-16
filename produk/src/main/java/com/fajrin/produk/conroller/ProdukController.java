@@ -23,8 +23,13 @@ public class ProdukController {
     private ProdukService produkService;
 
     @GetMapping
-    public List<Produk> getAllProduk() {
+    public List<Produk> getAll() {
         return produkService.getAll();
+    }
+    
+    @GetMapping(path = "{id}")
+    public Produk getProduk(@PathVariable("id") Long id){
+        return produkService.getProduk(id);
     }
 
     @PostMapping
@@ -32,13 +37,7 @@ public class ProdukController {
         produkService.insert(produk);
     }
 
-    @PutMapping("/{id}")
-    public void updateProduk(@PathVariable String id, @RequestBody Produk produk) {
-        produkService.editProduk(id, produk);
-    }
 
-    @DeleteMapping("/{id}")
-    public void deleteProduk(@PathVariable String id) {
-        produkService.deleteProduk(id);
-    }
+    
+    
 }

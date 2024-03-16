@@ -22,8 +22,12 @@ public class ProdukService {
     @Autowired
     private ProdukRepository produkRepository;
     
-    public List<Produk> getAll(){
+    public List<Produk>getAll(){
         return produkRepository.findAll();
+    }
+    
+    public Produk getProduk(Long id){
+        return produkRepository.findById(id).get();
     }
     
     @Transactional
@@ -31,20 +35,5 @@ public class ProdukService {
         produkRepository.save(produk);
     }
     
-    @Transactional
-    public void editProduk(String id, Produk updatedProduk) {
-        Produk existingProduk = produkRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Produk not found"));
-        existingProduk.setKode(updatedProduk.getKode());
-        existingProduk.setNama(updatedProduk.getNama());
-        existingProduk.setSatuan(updatedProduk.getSatuan());
-        produkRepository.save(existingProduk);
-    }
-    
-    @Transactional
-    public void deleteProduk(String id) {
-        Produk existingProduk = produkRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Produk not found"));
-        produkRepository.delete(existingProduk);
-    }
+
 }
