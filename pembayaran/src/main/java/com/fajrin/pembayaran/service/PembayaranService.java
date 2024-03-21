@@ -25,26 +25,14 @@ public class PembayaranService {
         return pembayaranRepository.findAll();
     }
 
-    public Pembayaran getPembayaranById(Long id) {
-        return pembayaranRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Pembayaran dengan ID " + id + " tidak ditemukan"));
+    public Pembayaran getPembayaran(Long id){
+        return pembayaranRepository.findById(id).get();
     }
-
-    public void insert(Pembayaran pembayaran) {
+    
+    @Transactional
+    public void insert(Pembayaran pembayaran){
         pembayaranRepository.save(pembayaran);
     }
+    
 
-    public void delete(Long id) {
-        pembayaranRepository.deleteById(id);
-    }
-
-    @Transactional
-    public void update(Long pembayaranId, int ref_number, String tgl_pembayaran, String status, double total) {
-        Pembayaran pembayaran = pembayaranRepository.findById(pembayaranId)
-                .orElseThrow(() -> new IllegalStateException("Pembayaran dengan ID " + pembayaranId + " tidak ditemukan"));
-        pembayaran.setRef_number(ref_number);
-        pembayaran.setTgl_pembayaran(tgl_pembayaran);
-        pembayaran.setStatus(status);
-        pembayaran.setTotal(total);
-    }
 }

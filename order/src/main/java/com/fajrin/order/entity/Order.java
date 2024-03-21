@@ -23,6 +23,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long produkId;
+    private Long pembayaranId;
     private int jumlah;
     private String tanggal;
     private String status;
@@ -31,9 +32,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id, Long produkId, int jumlah, String tanggal, String status, double total) {
+    public Order(Long id, Long produkId,Long pembayaranId, int jumlah, String tanggal, String status, double total) {
         this.id = id;
         this.produkId = produkId;
+        this.pembayaranId = pembayaranId;
         this.jumlah = jumlah;
         this.tanggal = tanggal;
         this.status = status;
@@ -56,6 +58,11 @@ public class Order {
         this.produkId = produkId;
     }
 
+    public Long getPembayaranId() {
+        return pembayaranId;
+    }
+    
+    
     public int getJumlah() {
         return jumlah;
     }
@@ -71,6 +78,7 @@ public class Order {
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
+    
 
     public String getStatus() {
         return status;
@@ -90,8 +98,8 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", produkId=" + produkId + ", jumlah=" + jumlah + ", tanggal=" + tanggal + ", status=" + status + ", total=" + total + '}';
+        return "Order{" + "id=" + id + ", produkId=" + produkId + ", pembayaranId=" + pembayaranId + ", jumlah=" + jumlah + ", tanggal=" + tanggal + ", status=" + status + ", total=" + total + '}';
     }
-    
-    
+
+   
 }

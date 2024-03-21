@@ -15,28 +15,24 @@ import org.springframework.web.bind.annotation.*;
  * @author HP14s FQ2002AU
  */
 @RestController
-@RequestMapping("/api/v1/pembayaran")
+@RequestMapping("api/v1/pembayaran")
 public class PembayaranController {
     @Autowired
     private PembayaranService pembayaranService;
     
-    @GetMapping
-    public List<Pembayaran> getAll(){
+   @GetMapping
+    public List<Pembayaran> getAll() {
         return pembayaranService.getAll();
     }
     
-    @PostMapping 
-    public void insertPembayaran(@RequestBody Pembayaran pembayaran) {
-        pembayaranService.insert(pembayaran);
+    @GetMapping(path = "{id}")
+    public Pembayaran getPembayaran(@PathVariable("id") Long id){
+        return pembayaranService.getPembayaran(id);
     }
 
-    @DeleteMapping("/{id}") 
-    public void deletePembayaran(@PathVariable Long id) {
-        pembayaranService.delete(id);
-    }
+    @PostMapping
+    public void insertPembayaran(@RequestBody Pembayaran pembayaran) {
+        pembayaranService.insert(pembayaran);
+    }   
     
-    @PutMapping("/{pembayaranId}")
-    public void updatePembayaran(@PathVariable Long pembayaranId, @RequestBody Pembayaran pembayaran) {
-        pembayaranService.update(pembayaranId, pembayaran.getRef_number(), pembayaran.getTgl_pembayaran(), pembayaran.getStatus(), pembayaran.getTotal());
-    }
 }

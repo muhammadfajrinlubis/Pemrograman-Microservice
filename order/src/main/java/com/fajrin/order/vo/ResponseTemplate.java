@@ -5,6 +5,9 @@
 package com.fajrin.order.vo;
 
 import com.fajrin.order.entity.Order;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 
 
@@ -16,14 +19,16 @@ import com.fajrin.order.entity.Order;
 public class ResponseTemplate {
     Produk produk;
     Order order;
+    Pembayaran pembayaran;
     
     public ResponseTemplate(){
         
     }
 
-    public ResponseTemplate(Order order, Produk produk) {
+    public ResponseTemplate(Order order, Produk produk,Pembayaran pembayaran) {
         this.order = order;
         this.produk = produk;
+        this.pembayaran = pembayaran;
     }
 
     
@@ -33,6 +38,14 @@ public class ResponseTemplate {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public Pembayaran getPembayaran() {
+        return pembayaran;
+    }
+
+    public void setPembayaran(Pembayaran pembayaran) {
+        this.pembayaran = pembayaran;
     }
 
     public Produk getProduk() {
@@ -45,9 +58,16 @@ public class ResponseTemplate {
 
     @Override
     public String toString() {
-        return "ResponseTemplate{" + "produk=" + produk + ", order=" + order + '}';
+        return "ResponseTemplate{" + "produk=" + produk + ", order=" + order + ", pembayaran=" + pembayaran + '}';
     }
     
-    
+    @Configuration
+public class AppConfig {
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+}
   
 }

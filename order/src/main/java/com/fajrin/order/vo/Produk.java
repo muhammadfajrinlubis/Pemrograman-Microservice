@@ -60,9 +60,9 @@ public class Produk {
         this.satuan = satuan;
     }
 
-    @Override
+        @Override
     public String toString() {
-        return "Produk{" + "id=" + id + ", kode=" + kode + ", nama=" + nama + ", satuan=" + satuan + '}';
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
