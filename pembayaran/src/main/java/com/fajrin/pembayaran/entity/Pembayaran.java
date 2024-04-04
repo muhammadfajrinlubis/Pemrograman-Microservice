@@ -20,7 +20,7 @@ public class Pembayaran {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long oerder_Id;
+    private Long order_Id;
     private String mode_pemabayaran;
     private int ref_number;
     private String tgl_pembayaran;
@@ -31,9 +31,9 @@ public class Pembayaran {
         
     }
 
-    public Pembayaran(Long id, Long oerder_Id, String mode_pemabayaran, int ref_number, String tgl_pembayaran, String status, double total) {
+    public Pembayaran(Long id, Long order_Id, String mode_pemabayaran, int ref_number, String tgl_pembayaran, String status, double total) {
         this.id = id;
-        this.oerder_Id = oerder_Id;
+        this.order_Id = order_Id;
         this.mode_pemabayaran = mode_pemabayaran;
         this.ref_number = ref_number;
         this.tgl_pembayaran = tgl_pembayaran;
@@ -50,12 +50,12 @@ public class Pembayaran {
         this.id = id;
     }
 
-    public Long getOerder_Id() {
-        return oerder_Id;
+    public Long getOrder_Id() {
+        return order_Id;
     }
 
-    public void setOerder_Id(Long oerder_Id) {
-        this.oerder_Id = oerder_Id;
+    public void setOrder_Id(Long order_Id) {
+        this.order_Id = order_Id;
     }
 
     public String getMode_pemabayaran() {
@@ -101,7 +101,7 @@ public class Pembayaran {
 
     @Override
     public String toString() {
-        return "Pembayaran{" + "id=" + id + ", oerder_Id=" + oerder_Id + ", mode_pemabayaran=" + mode_pemabayaran + ", ref_number=" + ref_number + ", tgl_pembayaran=" + tgl_pembayaran + ", status=" + status + ", total=" + total + '}';
+        return "Pembayaran{" + "id=" + id + ", order_Id=" + order_Id + ", mode_pemabayaran=" + mode_pemabayaran + ", ref_number=" + ref_number + ", tgl_pembayaran=" + tgl_pembayaran + ", status=" + status + ", total=" + total + '}';
     }
     
     

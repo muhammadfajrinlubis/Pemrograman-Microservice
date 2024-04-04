@@ -50,9 +50,9 @@ public class PembayaranService {
         List<ResponseTemplate> responseList = new ArrayList<>();
         Pembayaran pembayaran = getPembayaranById(id);
          Order order = restTemplate.getForObject("http://localhost:9002/api/v1/order/" 
-                + pembayaran.getOerder_Id(), Order.class);  
+                + pembayaran.getOrder_Id(), Order.class);  
         Produk produk = restTemplate.getForObject("http://localhost:9001/api/v1/produk/"
-                + pembayaran.getOerder_Id(),Produk.class);
+                + pembayaran.getOrder_Id(),Produk.class);
         ResponseTemplate vo = new ResponseTemplate();
         vo.setOrder(order);
         vo.setProduk(produk);
