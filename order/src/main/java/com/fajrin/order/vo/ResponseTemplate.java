@@ -15,7 +15,6 @@ import com.fajrin.order.entity.Order;
  */
 public class ResponseTemplate {
     Produk produk;
-    Pembayaran pembayaran;
     Order order;
     
     
@@ -23,10 +22,10 @@ public class ResponseTemplate {
         
     }
 
-    public ResponseTemplate(Order order, Produk produk,Pembayaran pembayaran) {
+    public ResponseTemplate(Order order, Produk produk) {
         this.order = order;
         this.produk = produk;
-        this.pembayaran = pembayaran;
+    
         
     }
 
@@ -46,17 +45,10 @@ public class ResponseTemplate {
         this.produk = produk;
     }
 
-    public Pembayaran getPembayaran() {
-        return pembayaran;
-    }
-
-    public void setPembayaran(Pembayaran pembayaran) {
-        this.pembayaran = pembayaran;
-    }
-
+   
     @Override
     public String toString() {
-        return "ResponseTemplate{" + "produk=" + produk + ", pembayaran=" + pembayaran + ", order=" + order + '}';
+        return "ResponseTemplate{" + "produk=" + produk + ", order=" + order + '}';
     }
     
  

@@ -6,6 +6,7 @@ package com.fajrin.pembayaran.controller;
 
 import com.fajrin.pembayaran.entity.Pembayaran;
 import com.fajrin.pembayaran.service.PembayaranService;
+import com.fajrin.pembayaran.vo.ResponseTemplate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,10 @@ public class PembayaranController {
     public void insertPembayaran(@RequestBody Pembayaran pembayaran) {
         pembayaranService.insert(pembayaran);
     } 
+     @GetMapping(path = "/order/produk/{id}")
+    public List<ResponseTemplate>getPembayaranWithOrderkById(@PathVariable("id") Long id) {
+        return pembayaranService.getPembayaranWithOrderkById(id);
+    }
      
     
 }

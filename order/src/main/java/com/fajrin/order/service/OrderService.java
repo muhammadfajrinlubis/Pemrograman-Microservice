@@ -6,7 +6,6 @@ package com.fajrin.order.service;
 
 import com.fajrin.order.entity.Order;
 import com.fajrin.order.repository.OrderRepository;
-import com.fajrin.order.vo.Pembayaran;
 
 import com.fajrin.order.vo.Produk;
 import com.fajrin.order.vo.ResponseTemplate;
