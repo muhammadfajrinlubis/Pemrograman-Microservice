@@ -14,6 +14,7 @@ euraka:
             register-with-eureka: false 
             fetch-registry: false
             serviceUrl:
-                devaultZone: http://localhost:8761/aureka
+                devaultZone: http://localhost:8761/aureka/
     
-        
+  
+              
